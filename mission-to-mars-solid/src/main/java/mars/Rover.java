@@ -16,13 +16,35 @@ public class Rover implements ModuleMartien2D {
 	}
 
 	public void avancer() {
-		position = direction.getMouvement2D().avancer(position);
-		//position = new DirectionHandlerFactory().apply(direction).avancer(position);
+		switch (direction) {
+		case NORD:
+			position = new Position(position.getX(), position.getY() + 1, position.getZ());
+			break;
+		case SUD:
+			position = new Position(position.getX(), position.getY() - 1, position.getZ());
+			break;
+		case OUEST:
+			position = new Position(position.getX() - 1, position.getY(), position.getZ());
+			break;
+		default:
+			position = new Position(position.getX() + 1, position.getY(), position.getZ());
+		}
 	}
 
 	public void reculer() {
-		position = direction.getMouvement2D().reculer(position);
-		//position = new DirectionHandlerFactory().apply(direction).reculer(position);
+		switch (direction) {
+		case NORD:
+			position = new Position(position.getX(), position.getY() - 1, position.getZ());
+			break;
+		case SUD:
+			position = new Position(position.getX(), position.getY() + 1, position.getZ());
+			break;
+		case OUEST:
+			position = new Position(position.getX() + 1, position.getY(), position.getZ());
+			break;
+		default:
+			position = new Position(position.getX() - 1, position.getY(), position.getZ());
+		}
 	}
 
 	public void activerRecuperation() {
