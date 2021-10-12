@@ -1,26 +1,29 @@
 import abc
 
+from src.mars.Direction import Direction
 from src.mars.Position import Position
 
 
 class ModuleMartien2D(abc.ABC):
+    def __init__(self, direction: Direction, position: Position) -> None:
+        self._direction: Direction = direction
+        self.position: Position = position
+        self._pret_pour_recuperation: bool = False
 
-    @abc.abstractmethod
     def get_position(self) -> Position:
-        pass
+        return self.position
 
-    @abc.abstractmethod
+    def is_pret_pour_recuperation(self) -> bool:
+        return self._pret_pour_recuperation
+
     def avancer(self) -> None:
-        pass
+        self.position = self._direction.mouvement2D.avancer(self.position)
+        # self.position = DirectionHandlerFactory().apply(self._direction).avancer(self.position)
 
-    @abc.abstractmethod
     def reculer(self) -> None:
-        pass
+        self.position = self._direction.mouvement2D.reculer(self.position)
+        # self.position = DirectionHandlerFactory().apply(self._direction).reculer(self.position)
 
     @abc.abstractmethod
     def activer_recuperation(self) -> None:
-        pass
-
-    @abc.abstractmethod
-    def is_pret_pour_recuperation(self) -> bool:
         pass

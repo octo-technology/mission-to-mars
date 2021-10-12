@@ -1,11 +1,9 @@
 from src.mars.Direction import Direction
 from src.mars.ModuleMartien3D import ModuleMartien3D
 from src.mars.Position import Position
-from src.mars.Rover import Rover
 
 
-class Helicoptere(Rover, ModuleMartien3D):
-
+class Helicoptere(ModuleMartien3D):
     def __init__(self, direction: Direction, position: Position):
         super().__init__(direction, position)
 
@@ -17,7 +15,7 @@ class Helicoptere(Rover, ModuleMartien3D):
 
     def activer_recuperation(self) -> None:
         self._atterir()
-        super(Helicoptere, self).activer_recuperation()
+        self._pret_pour_recuperation = True
 
     def _atterir(self) -> None:
         for i in range(self.get_position().z):
