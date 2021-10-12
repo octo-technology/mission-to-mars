@@ -17,11 +17,11 @@ class Rover(ModuleMartien2D):
         return self._pret_pour_recuperation
 
     def avancer(self) -> None:
-        self.position = self._direction.value.avancer(self.position)
+        self.position = self._direction.mouvement2D.avancer(self.position)
         # self.position = DirectionHandlerFactory().apply(self._direction).avancer(self.position)
 
     def reculer(self) -> None:
-        self.position = self._direction.value.reculer(self.position)
+        self.position = self._direction.mouvement2D.reculer(self.position)
         # self.position = DirectionHandlerFactory().apply(self._direction).reculer(self.position)
 
     def activer_recuperation(self) -> None:
