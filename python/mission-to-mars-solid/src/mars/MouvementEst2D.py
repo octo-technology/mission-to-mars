@@ -1,5 +1,3 @@
-import abc
-
 from src.mars.Mouvement2D import Mouvement2D
 from src.mars.Position import Position
 

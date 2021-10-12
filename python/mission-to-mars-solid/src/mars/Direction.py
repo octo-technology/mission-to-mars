@@ -13,5 +13,5 @@ class Direction(enum.Enum):
     OUEST = (MouvementOuest2D())
     EST = (MouvementEst2D())
 
-    def __init__(self, mouvement2D:Mouvement2D):
-        self.mouvement2D = mouvement2D
+    def __init__(self, mouvement_2D: Mouvement2D):
+        self.mouvement2D = mouvement_2D
