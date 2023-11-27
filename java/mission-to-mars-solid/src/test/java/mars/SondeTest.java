@@ -11,14 +11,14 @@ class SondeTest {
 	void roverDoitEtreRecupere() {
 		// Arrange
 		Sonde sut = new Sonde();
-		ModuleMartien2D curiosity = new Rover(Direction.NORD, new Position(4, 4, 0));
+		ModuleMartien2D perseverance = new Rover(Direction.NORD, new Position(4, 4, 0));
 
 		// Act
-		sut.preparerRecuperation(curiosity);
+		sut.preparerRecuperation(perseverance);
 
 		// Assert
-		assertTrue(curiosity.isPretPourRecuperation());
-		assertEquals(new Position(4, 4, 0), curiosity.getPosition());
+		assertTrue(perseverance.isPretPourRecuperation());
+		assertEquals(new Position(4, 4, 0), perseverance.getPosition());
 	}
 
 	@Test
