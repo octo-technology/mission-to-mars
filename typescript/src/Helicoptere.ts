@@ -1,11 +1,13 @@
 import { Direction } from './Direction'
+import { Module } from './Module'
 import { ModuleMartien3D } from './ModuleMartien3D'
 import { Position } from './Position'
-import { Rover } from './Rover'
 
-export class Helicoptere extends Rover implements ModuleMartien3D {
-  constructor(override readonly direction: Direction, override readonly position: Position) {
-    super(direction, position);
+export class Helicoptere extends Module implements ModuleMartien3D {
+  constructor(readonly direction: Direction, readonly position: Position) {
+    super();
+    super._direction = direction;
+    super._position = position;
   }
 
   monter() {
